@@ -175,6 +175,11 @@
                 value="majorgender"><span>Major+gender</span></label>
             </p>
             <p>
+                <label><input onclick="refresh()" type="radio" name="agg"
+                id="ethgender"
+                value="ethgender"><span>Ethnicity+gender</span></label>
+            </p>
+            <p>
                 <label><input onclick="refresh()" type="radio" name="agg" id="race"
                 value="race"><span>Ethnicity</span></label>
             </p>
@@ -278,12 +283,39 @@
                 With regards to Gender, the report only contains male/female
                 breakdown. This is maintained here.
             </p>
-            <h3>Project</h3>
+            <h3>Project & Process</h3>
             <p>
                 The project builds on the data reported from Stanford to create
                 this tool. The main goal is to allow comparing different majors
                 and how those evolve over time.
             </p>
+            <p>
+                The initial phase of the project was collecting the data across
+                multiple years from the Online Profiles publication of the ASEE
+                (ASEE, 2019). Since the profiles are not available in any
+                machine-readable format, this required writing code to extract
+                it from the website. Further, there were several options on how
+                to proceed further with exploring the data. I started with
+                several questions about the process of inclusion of different
+                groups of people in the School of Engineering. Primarily, I
+                wanted to find out how participation of different groups of
+                people based on ethnic and gender identity is reflected in
+                choices to participate in engineering.
+            </p>
+            <p>
+                The second stage of the project was exploration of the numbers
+                available. After the data was collected, I build several prototype graphs
+                that compared degrees awarded based on ethnicity, gender and
+                combinations of the two. Having built some 10-12 of these
+                graphs, I found the ones that compared numbers over time across
+                these variables to be the most informative.
+            </p>
+            <p>
+                The third stage of the project was trying to present multiple of
+                these graphs in a way that was compelling. However, I found it
+                difficult to create a narrative around the numbers I was seeing.
+            </p>
+            <h3>Technical details</h3>
             <p>
                 The charts are built using <a
                 href="https://chartjs.org" target="_new">Chart.js</a>. An

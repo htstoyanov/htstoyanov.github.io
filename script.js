@@ -128,7 +128,8 @@ function aggYearMajor(results) {
             aggregator === 'major' ? major :
             (aggregator === 'gender' ? gender :
             (aggregator === 'race' ? race :
-            major+","+gender));
+            (aggregator === 'majorgender' ?  major+","+gender :
+            race + ","+gender)));
         majors.add(indicator);
         let m = yearMajor.get(year);
         if (m === undefined) m = new Map();
