@@ -1,0 +1,355 @@
+<html>
+  <head>
+    <title>Exploring diversity in Stanford's School of Engineering</title>
+    <style>
+        body {
+            font-size: 16pt;
+        }
+        .header h1 {
+            color: #8C1515;
+        }
+    </style>
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+    <div class="row header center-align">
+        <h1>Exploring diversity in Stanford's SoE</h1>
+    </div>
+    <div>
+        <p class="flow-text">
+            The goal of this project is to allow prospective students to learn
+            more about the diversity of students that graduate from the School
+            of Engineering at Stanford.
+        </p>
+        <hr />
+        <div>
+            <p>
+            Explore some graphs:
+            </p>
+         <ol>
+          <li><a onclick="presetEandCS()">CS and Engineering by major and gender</a></li>
+          <li><a onclick="presetAsiBlkHisF()">Asian, Black and Hispanic females</a></li>
+          <li><a onclick="presetAsiBlkHisEE()">Asian, Black and Hispanic majoring in EE</a></li>
+         </ol>
+        </div>
+    </div>
+    <div class="row">
+    <div class="col s12">
+      <ul id="tabs" class="tabs">
+        <li class="tab col s6"><a href="#graph">Tool</a></li>
+        <li class="tab col s6"><a href="#desc">Description</a></li>
+      </ul>
+    </div>
+    <div id="graph" class="col s12">
+    <div class="row">
+        <div class="col s12 l4">
+            <div><p>Major</p></div>
+            <p>
+                <label><input onclick="toggleAllMajors(this)" checked type="checkbox"
+                id="AllMajors"><span>Select all</span></label>
+            </p>
+            <p>
+                <label><input onclick="majorSelect(this)" checked type="checkbox"
+                id="Bioengineering"><span>Bioengineering</span></label>
+            </p>
+            <p>
+                <label><input onclick="majorSelect(this)" checked type="checkbox"
+                id="Chemical Engineering"><span>Chemical Engineering</span></label>
+            </p>
+            <p>
+                <label><input onclick="majorSelect(this)" checked type="checkbox"
+                id="Civil Engineering"><span>Civil Engineering</span></label>
+            </p>
+            <p>
+                <label><input onclick="majorSelect(this)" checked type="checkbox"
+                id="Computer Science"><span>Computer Science</span></label>
+            </p>
+            <p>
+                <label><input onclick="majorSelect(this)" checked type="checkbox"
+                id="Electrical Engineering"><span>Electrical Engineering</span></label>
+            </p>
+            <p>
+                <label><input onclick="majorSelect(this)" checked type="checkbox"
+                id="Energy Resources Engineering"><span>Energy Resources Engineering</span></label>
+            </p>
+            <p>
+                <label><input onclick="majorSelect(this)" checked type="checkbox"
+                id="Engineering"><span>Engineering</span></label>
+            </p>
+            <p>
+                <label><input onclick="majorSelect(this)" checked type="checkbox"
+                id="Environmental Engineering"><span>Environmental Engineering</span></label>
+            </p>
+            <p>
+                <label><input onclick="majorSelect(this)" checked type="checkbox"
+                id="Environmental Systems Engineering"><span>Environmental Systems Engineering</span></label>
+            </p>
+            <p>
+                <label><input onclick="majorSelect(this)" checked type="checkbox"
+                id="Individually Designed Major"><span>Individually Designed Major</span></label>
+            </p>
+            <p>
+                <label><input onclick="majorSelect(this)" checked type="checkbox"
+                id="Management Science and Engineering"><span>Management Science and Engineering</span></label>
+            </p>
+            <p>
+                <label><input onclick="majorSelect(this)" checked type="checkbox"
+                id="Materials Science and Engineering"><span>Materials Science and Engineering</span></label>
+            </p>
+            <p>
+                <label><input onclick="majorSelect(this)" checked type="checkbox"
+                id="Mechanical Engineering"><span>Mechanical Engineering</span></label>
+            </p>
+        </div>
+        <div class="col s12 l3">
+            <div><p>Ethnicity</p></div>
+            <p>
+                <label><input onclick="toggleAllRaces(this)" checked type="checkbox"
+                id="AllRaces"><span>Select all</span></label>
+            </p>
+            <p>
+                <label><input onclick="raceSelect(this)" checked type="checkbox"
+                id="Nra"><span>Nra - Nonresident aliens</span></label>
+            </p>
+            <p>
+                <label><input onclick="raceSelect(this)" checked type="checkbox"
+                id="Asi"><span>Asi - Asian American</span></label>
+            </p>
+            <p>
+                <label><input onclick="raceSelect(this)" checked type="checkbox"
+                id="Blk"><span>Blk - Black</span></label>
+            </p>
+            <p>
+                <label><input onclick="raceSelect(this)" checked type="checkbox"
+                id="His"><span>His - Hispanic</span></label>
+            </p>
+            <p>
+                <label><input onclick="raceSelect(this)" checked type="checkbox"
+                id="Ind"><span>Ind - American Indian</span></label>
+            </p>
+            <p>
+                <label><input onclick="raceSelect(this)" checked type="checkbox"
+                id="Pac"><span>Pac - Pacific Islander</span></label>
+            </p>
+            <p>
+                <label><input onclick="raceSelect(this)" checked type="checkbox"
+                id="Unk"><span>Unk - Unknown</span></label>
+            </p>
+            <p>
+                <label><input onclick="raceSelect(this)" checked type="checkbox"
+                id="Wht"><span>Wht - White</span></label>
+            </p>
+            <p>
+                <label><input onclick="raceSelect(this)" checked type="checkbox"
+                id="Two"><span>Two - Two or More</span></label>
+            </p>
+        </div>
+        <div class="col s12 l2">
+            <div><p>Gender</p></div>
+            <p>
+                <label><input onclick="genderSelect(this)" checked type="checkbox"
+                id="M"><span>Male</span></label>
+            </p>
+            <p>
+                <label><input onclick="genderSelect(this)" checked type="checkbox"
+                id="F"><span>Female</span></label>
+            </p>
+        </div>
+        <div class="col s12 l3">
+            <form id="aggregate">
+            <div><p>Compare</p></div>
+            <p>
+                <label><input onclick="refresh()" type="radio" name="agg" id="major"
+                value="major" checked><span>Majors</span></label>
+            </p>
+            <p>
+                <label><input onclick="refresh()" type="radio" name="agg"
+                id="gender" value="gender"><span>Gender</span></label>
+            </p>
+            <p>
+                <label><input onclick="refresh()" type="radio" name="agg" id="majorgender"
+                value="majorgender"><span>Major+gender</span></label>
+            </p>
+            <p>
+                <label><input onclick="refresh()" type="radio" name="agg" id="race"
+                value="race"><span>Ethnicity</span></label>
+            </p>
+            <div class="switch">
+                <label>
+                    <input onclick="refresh()" type="checkbox" id="stacked" />
+                    <span class="lever"></span>
+                    Stacked
+                </label>
+            </div>
+            <p></p>
+            <div class="switch">
+                <label>
+                    <input checked onclick="refresh()" type="checkbox" id="legend" />
+                    <span class="lever"></span>
+                    Legend
+                </label>
+            </div>
+            </form>
+        </div>
+    </div>
+    <div class="chart-container" style="position: relative;
+    width:100%">
+        <canvas id="myChart"></canvas>
+    </div>
+    <div>
+    <div style="font-size: 13px">
+        Source: <a href="https://asee.org/">American Society for Engineering
+        Education.</a> 2019. <i>College
+        Profiles - Stanford University</i>. Retrieved March 11, 2019 from <a
+        href="http://profiles.asee.org/">http://profiles.asee.org/</a>
+    </div>
+    </div>
+    </div>
+    <div id="desc" class="col s12">
+        <div class="row">
+            <h3>Author</h3>
+            My name is Hristo Stoyanov, a student enrolled in ENGR 117:
+            Expanding Engineering Limits. This is my final project. Contact me
+            at [last-name]@stanford.edu.
+            <h3>Prior work</h3>
+            <p>
+                There are several publications that highlight ethnicity and
+                gender and issues of diversity at Stanford and in particular the
+                School of Engineering.
+            </p>
+            <p>
+                The first resource is the <a
+                href="https://facts.stanford.edu/academics/undergraduate-profile/"
+                target="_new">Undergraduate Student Profile</a> published by
+                Stanford annually. This showcases a remarkable bar chart with 2
+                values: 50% men and 50% women. No interactions between gender
+                and race or ethnicity is reported.
+            </p>
+            <p>
+                The Stanford Daily published a graphic showing the gender ratio
+                at <a
+                href="https://www.stanforddaily.com/2016/11/08/graphic-gender-ratio-in-select-stanford-majors-2015-2016/">Stanford
+                in the 2015-2016 academic year</a> (Li, 2016). The graph
+                presents a useful snapshot at one particular moment in time.
+            </p>
+            <p>
+                A previous project called <a
+                href="http://stanfordvisualized.soraven.com">Stanford
+                Visualized</a> aims to take a quantitative look at Stanford's
+                enrollment over a long period of time. The data there covers
+                1963-2014, spanning five decades. It contains number of enrolled
+                students in a given major for every year. The data highlights
+                how majors evolve over time, tracking both undergraduate and
+                graduate students. It is possible to compare majors by looking
+                at enrolled students by gender, but no race or ethnicity data is
+                available.
+            </p>
+            <h3>Dataset</h3>
+            <p>
+                The dataset covers years 2010-2018 and shows Undergraduate
+                degrees awarded by ethnicity and gender.  The data is
+                collected from the <a href="http://www.asee.org"
+                target="_new">American Society for Engineering Education</a>
+                website where it is published reported by Stanford. The list of
+                sources contains links to the College Profiles for Stanford
+                University. The reports break down degrees award by
+                <i>Ethnicity</i> and <i>Gender</i>; the same terminology is
+                maintained here and ethnicity as a term is maintained.
+            </p>
+            <p>
+                The <i>Ethnicity</i> variable has a certain overlap with race,
+                but race cannot be derived from ethnicity in this data set. For
+                example, US citizens of Asian American descent are reported as
+                Asian Americans, while foreign students from Asian countries
+                will be reported under Nra - nonresident aliens.  Similarly, Blk
+                - Black includes African Americans, but not black students who
+                  are not US citizens.
+            </p>
+            <p>
+                With regards to Gender, the report only contains male/female
+                breakdown. This is maintained here.
+            </p>
+            <h3>Project</h3>
+            <p>
+                The project builds on the data reported from Stanford to create
+                this tool. The main goal is to allow comparing different majors
+                and how those evolve over time.
+            </p>
+            <p>
+                The charts are built using <a
+                href="https://chartjs.org" target="_new">Chart.js</a>. An
+                inspiration for the graph was drawn from the book <i>Beautiful
+                evidence</i> (Tufte, 2006). Particularly, when a limited number
+                of lines are shown, each line is decorated with precise numbers
+                for that indicator variable and year. Further, hovering with a
+                mouse or touching a year (on a mobile device) shows a list of
+                the values for that year.
+            </p>
+            <p>
+                The color scheme of the graph was selected to maintain usability
+                by color-blind people (Tol, 2018). This has the added benefit
+                that the charts produced will be legible and readable in print
+                too.
+            </p>
+        </div>
+        <div class="row">
+            <h3>Sources</h3>
+            <ol>
+                <li>
+                    American Society for Engineering Education. <i>College
+                    Profiles - Stanford University</i>. Retrieved March 11, 2019.
+                    <ol type="i">
+                        <li><a href="http://profiles.asee.org/profiles/8036/screen/21" target="_new">2018: http://profiles.asee.org/profiles/8036/screen/21</a></li>
+                        <li><a href="http://profiles.asee.org/profiles/7634/screen/21" target="_new">2017: http://profiles.asee.org/profiles/7634/screen/21</a></li>
+                        <li><a href="http://profiles.asee.org/profiles/7255/screen/21" target="_new">2016: http://profiles.asee.org/profiles/7255/screen/21</a></li>
+                        <li><a href="http://profiles.asee.org/profiles/6930/screen/21" target="_new">2015: http://profiles.asee.org/profiles/6930/screen/21</a></li>
+                        <li><a href="http://profiles.asee.org/profiles/6533/screen/21" target="_new">2014: http://profiles.asee.org/profiles/6533/screen/21</a></li>
+                        <li><a href="http://profiles.asee.org/profiles/6116/screen/21" target="_new">2013: http://profiles.asee.org/profiles/6116/screen/21</a></li>
+                        <li><a href="http://profiles.asee.org/profiles/5694/screen/21" target="_new">2012: http://profiles.asee.org/profiles/5694/screen/21</a></li>
+                        <li><a href="http://profiles.asee.org/profiles/5243/screen/21" target="_new">2011: http://profiles.asee.org/profiles/5243/screen/21</a></li>
+                        <li><a href="http://profiles.asee.org/profiles/4796/screen/21" target="_new">2010: http://profiles.asee.org/profiles/4796/screen/21</a></li>
+                    </ol>
+                </li>
+                <li>Tufte, E. R. (2006). <i>Beautiful Evidence.</i> Cheshire: Graphics Press.</li>
+                <li>Chart.js <a
+                href="https://github.com/chartjs/Chart.js/graphs/contributors"
+                target="_new">contributors</a>. (2019). <i>Chart.js
+                documentation.</i> Retrieved March 11, 2019 from <a
+                target="_new" href="https://www.chartjs.org">https://www.chartjs.org</a></li>
+                <li>Stanford University. (2019). <i>Undergraduate Student
+                Profile.</i> Retrieved March 11, 2019 from
+                <a
+                href="https://facts.stanford.edu/academics/undergraduate-profile/"
+                target="_new">https://facts.stanford.edu/academics/undergraduate-profile/</a></li>
+                <li>
+                Tol, P. (2018). <i>Qualitative Colour Schemes.</i> Retrieved
+                from <a target="_new"
+                href="http://stanfordvisualized.soraven.com">https://personal.sron.nl/~pault/</a>
+                </li>
+                <li>
+                Li, S. (2016). <i>Graphic: Gender ratio in select Stanford
+                majors 2015-2016</i>. Retrieved March 11, 2019 from
+<a
+                target="_new"
+                href="https://www.stanforddaily.com/2016/11/08/graphic-gender-ratio-in-select-stanford-majors-2015-2016/">
+https://www.stanforddaily.com/2016/11/08/graphic-gender-ratio-in-select-stanford-majors-2015-2016/</a>
+                </li>
+                <li>
+                <i>Stanford Visualized</i>. Retrieved March 11, 2019 from <a
+                target="_new"
+                href="http://stanfordvisualized.soraven.com">http://stanfordvisualized.soraven.com</a>
+                </li>
+            </ol>
+        </div>
+        </div>
+    </div>
+    <script src="papaparse.min.js"></script>
+    <script src="Chart.min.js"></script>
+    <script src="palette.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
